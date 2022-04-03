@@ -1,0 +1,306 @@
+:root {
+
+    --light: #fff;
+
+}
+
+
+
+
+
+/* scene */
+#scene-body {
+    font-family: "Poppins", sans-serif;
+    background: url(../images/backgrounds/scene-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    color: var(--light);
+}
+
+#scene-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #8b1ebd;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+    z-index: -1;
+    height: 100%;
+    backdrop-filter: blur(1.9rem);
+    background-clip: padding-box;
+    position: fixed;
+    width: 100vw;
+}
+
+.scene-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2rem;
+}
+
+.scene-title {
+    margin: 2rem 5rem;
+}
+
+.scene-cards {
+    max-width: 300px;
+    width: 300px;
+    height: 350px;
+    border-radius: 10px;
+    z-index: 1;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0 0 0 / 20%);
+    transition: 0.3s ease;
+    margin: 1rem 0.5rem;
+}
+
+.scene-cards img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.scene-cards:hover {
+    transform: translateY(-5px);
+}
+
+.scene-cards .scene-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.scene-cards::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    border-radius: 10px;
+}
+
+.play-video-icon,
+.play-video-icon-ocean,
+.play-video-icon-rain,
+.play-video-icon-fall,
+.play-video-icon-snow,
+.play-video-icon-ice {
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s ease;
+    margin-left: 0.7rem;
+    font-size: 1.5rem;
+}
+
+.play-video-icon:hover,
+.play-video-icon-ocean:hover,
+.play-video-icon-rain:hover,
+.play-video-icon-fall:hover,
+.play-video-icon-snow:hover,
+.play-video-icon-ice:hover {
+    transform: scale(1.1);
+}
+
+.scene-vid-title {
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+    display: flex;
+    z-index: 10;
+    align-items: center;
+}
+
+.scene-vid-title span {
+    font-size: 20px;
+    text-shadow: 1px 1px #000000;
+}
+
+/* video content */
+.sunset-content,
+.ocean-content,
+.rain-content,
+.fall-content,
+.snow-content,
+.ice-content {
+    background-color: #fbbd08;
+    position: relative;
+    place-items: center;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out;
+}
+
+.sunset-content.active-show,
+.ocean-content.active-show-ocean,
+.rain-content.active-show-rain,
+.fall-content.active-show-fall,
+.snow-content.active-show-snow,
+.ice-content.active-show-ice {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.video-container-sunset,
+.video-container-ocean,
+.video-container-rain,
+.video-container-fall,
+.video-container-snow,
+.video-container-ice {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.time-select,
+.time-select-ocean,
+.time-select-rain,
+.time-select-fall,
+.time-select-snow,
+.time-select-ice {
+    position: fixed;
+    bottom: 7%;
+    left: 7%;
+    display: flex;
+    z-index: 999;
+    align-items: center;
+    transform: translateX(-50%);
+    transition: all 500ms ease-in-out 250ms;
+    opacity: 0;
+}
+
+.sunset-content.active-show .time-select,
+.ocean-content.active-show-ocean .time-select-ocean,
+.rain-content.active-show-rain .time-select-rain,
+.fall-content.active-show-fall .time-select-fall,
+.snow-content.active-show-snow .time-select-snow,
+.ice-content.active-show-ice .time-select-ice {
+    transform: translateX(0);
+    transition: all 500ms ease-in-out 250ms;
+    opacity: 1;
+}
+
+.select-btn,
+.select-btn-ocean,
+.select-btn-rain,
+.select-btn-fall,
+.select-btn-snow,
+.select-btn-ice {
+    padding: 0.4rem 2rem;
+    margin: 0 0.5rem;
+    border-radius: 50px;
+    font-family: "poppins", sans-serif;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: linear-gradient(to bottom left, #fffa81, #b56a2a);
+    color: var(--light);
+    transform: scale(0.9);
+    transition: 0.3s ease;
+}
+
+.select-btn:hover,
+.select-btn-ocean:hover,
+.select-btn-rain:hover,
+.select-btn-fall:hover,
+.select-btn-snow:hover,
+.select-btn-ice:hover {
+    transform: scale(1);
+}
+
+.pause-video,
+.pause-video-ocean,
+.pause-video-rain,
+.pause-video-fall,
+.pause-video-snow,
+.pause-video-ice {
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50px;
+}
+
+.exit-video,
+.exit-video-ocean,
+.exit-video-rain,
+.exit-video-fall,
+.exit-video-snow,
+.exit-video-ice {
+    position: fixed;
+    z-index: 999;
+    right: 2rem;
+    top: 2rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-size: 24px;
+}
+
+.exit-video:hover,
+.exit-video-ocean:hover,
+.exit-video-rain:hover,
+.exit-video-fall:hover,
+.exit-video-snow:hover,
+.exit-video-ice:hover {
+    transform: scale(1.1);
+}
+
+/* hide time select */
+.hide-time-select-icon,
+.hide-time-select-icon-ocean,
+.hide-time-select-icon-rain,
+.hide-time-select-icon-fall,
+.hide-time-select-icon-snow,
+.hide-time-select-icon-ice {
+    position: fixed;
+    bottom: 8.2%;
+    left: 0.5rem;
+    cursor: pointer;
+    color: #fbbd08;
+    transition: 0.5s;
+}
+
+.sunset-content.active-show.hide-time-select .time-select,
+.ocean-content.active-show-ocean.hide-time-select-ocean .time-select-ocean,
+.rain-content.active-show-rain.hide-time-select-rain .time-select-rain,
+.fall-content.active-show-fall.hide-time-select-fall .time-select-fall,
+.snow-content.active-show-snow.hide-time-select-snow .time-select-snow,
+.ice-content.active-show-ice.hide-time-select-ice .time-select-ice {
+    transform: translateX(-150%);
+}
+
+.sunset-content.active-show.show-time-select .time-select,
+.ocean-content.active-show-ocean.show-time-select-ocean .time-select-ocean,
+.rain-content.active-show-rain.show-time-select-rain .time-select-rain,
+.fall-content.active-show-fall.show-time-select-fall .time-select-fall,
+.snow-content.active-show-snow.show-time-select-snow .time-select-snow,
+.ice-content.active-show-ice.show-time-select-ice .time-select-ice {
+    transform: translateX(0);
+}
+
+/* rotate toggle */
+.rotate-chevron .hide-time-select-icon,
+.rotate-chevron-ocean .hide-time-select-icon-ocean,
+.rotate-chevron-rain .hide-time-select-icon-rain,
+.rotate-chevron-fall .hide-time-select-icon-fall,
+.rotate-chevron-snow .hide-time-select-icon-snow,
+.rotate-chevron-ice .hide-time-select-icon-ice {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
